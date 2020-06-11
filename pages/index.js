@@ -1,14 +1,7 @@
 import Head from "next/head";
 import React from "react";
-import styled from "styled-components";
-import FactCards from "../components/FactCards";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  background: #0f0a3a;
-`;
+import FactCards from "../components/FactCards";
 
 export default function App() {
   return (
@@ -17,9 +10,7 @@ export default function App() {
         <title>Fumble</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>
-        <FactCards />
-      </Container>
+      <FactCards />
     </>
   );
 }

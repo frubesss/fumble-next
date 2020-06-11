@@ -6,10 +6,11 @@ import Heading from "@totallymoney/ui/components/Heading";
 import Text from "@totallymoney/ui/components/Text";
 
 const AppContainer = styled.div`
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 80vw;
+  height: 60vh;
+  position: relative;
+  max-width: 375px;
+  max-height: 533px;
 `;
 
 const StyledTinderCard = styled(TinderCard)`
@@ -20,16 +21,11 @@ const StyledTinderCard = styled(TinderCard)`
 `;
 
 const StyledCard = styled.div`
-  background-color: #fff;
-  min-width: 260px;
-  min-height: 400px;
-  border-radius: 20px;
-  text-align: left;
-  cursor: grab;
-`;
-
-const CardContainer = styled.div`
   padding: 32px;
+  min-height: 300px;
+  border-radius: 10px;
+  cursor: grab;
+  background: #fff;
 `;
 
 function FactCards() {
@@ -55,12 +51,10 @@ function FactCards() {
           onCardLeftScreen={() => outOfFrame()}
         >
           <StyledCard>
-            <CardContainer>
-              <Heading as="h2" variant="h3">
-                {item.CardTitle}
-              </Heading>
-              <Text variant="bodyCopySmall">{item.CardContent}</Text>
-            </CardContainer>
+            <Heading as="h2" variant="h3">
+              {item.CardTitle}
+            </Heading>
+            <Text variant="bodyCopySmall">{item.CardContent}</Text>
           </StyledCard>
         </StyledTinderCard>
       ))}
