@@ -1,38 +1,27 @@
-import Head from 'next/head'
+import Head from "next/head";
 import React from "react";
-import Card from "../components/Card";
+import styled from "styled-components";
 
-export default function Home() {
+import FactCards from "../components/FactCards";
+
+const Container = styled.div`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0f0a3a;
+`;
+
+export default function App() {
   return (
-    <div>
+    <>
       <Head>
         <title>Fumble</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div id="root">
-        <Card/>
-      </div>
-
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-      
-      #root {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        min-height: 100vh;
-        background: #0f0a3a;
-      }
-      `}</style>
-    </div>
-  )
+      <Container>
+        <FactCards />
+      </Container>
+    </>
+  );
 }
