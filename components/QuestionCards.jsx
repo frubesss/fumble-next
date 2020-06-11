@@ -41,24 +41,24 @@ const Description = styled.p`
 function QuestionCardsContainer() {
   const data = [
     {
-      title: "Craig Robertson",
-      description: "Loves donuts, mainly Jam donuts",
+      question: "Who is the best developer at Totallymoney?",
+      answer: "Craig Robertson",
     },
     {
-      title: "Barry Scott",
-      description: "Loves donuts, mainly Jam donuts",
+      question: "Who is the best developer at Totallymoney?",
+      answer: "Craig Robertson",
     },
     {
-      title: "Tezza Williams",
-      description: "Loves donuts, mainly Jam donuts",
+      question: "Who is the best developer at Totallymoney?",
+      answer: "Craig Robertson",
     },
     {
-      title: "Mathew Donnayyy",
-      description: "Loves donuts, mainly Jam donuts",
+      question: "Who is the best developer at Totallymoney?",
+      answer: "Craig Robertson",
     },
     {
-      title: "Henery Smith",
-      description: "Loves donuts, mainly Jam donuts",
+      question: "Who is the best developer at Totallymoney?",
+      answer: "Craig Robertson",
     },
   ];
 
@@ -70,14 +70,14 @@ function QuestionCardsContainer() {
     <AppContainer>
       {data.map((item) => (
         <StyledTinderCard
-          key={item.title}
+          key={item.question}
           onSwipe={() => swiped()}
           onCardLeftScreen={() => outOfFrame()}
         >
           <StyledCard>
             <CardContainer>
-              <Title>{item.title}</Title>
-              <Description>{item.description}</Description>
+              <Title>{item.question}</Title>
+              <Description>{item.answer}</Description>
             </CardContainer>
           </StyledCard>
         </StyledTinderCard>
