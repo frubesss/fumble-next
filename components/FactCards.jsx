@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TinderCard from "react-tinder-card";
 import styled from "styled-components";
+import Airtable from "airtable";
 
 import Heading from "@totallymoney/ui/components/Heading";
 import Text from "@totallymoney/ui/components/Text";
@@ -32,12 +33,16 @@ const StyledCard = styled.div`
 `;
 
 function FactCards() {
+  const base = new Airtable({
+    apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
+  }).base("appUuI0J2jR3kVfUY");
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch("https://g4p99w1vq4.execute-api.eu-west-1.amazonaws.com/prod/cards")
-      .then((res) => res.json())
-      .then((result) => {
-        setItems(result.Cards);
+    base("Fact Cards")
+      .select()
+      .firstPage(function (err, records) {
+        const recordFields = records.map((record) => record.fields);
+        setItems(recordFields);
       });
   }, []);
 
@@ -57,7 +62,7 @@ function FactCards() {
             <Heading as="h2" variant="h4">
               {item.CardTitle}
             </Heading>
-            <Text variant="bodyCopySmall">{item.CardContent}</Text>
+            <Text variant="bodyCopySmall">{item.CardDescription}</Text>
           </StyledCard>
         </StyledTinderCard>
       ))}
