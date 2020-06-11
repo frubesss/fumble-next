@@ -26,6 +26,9 @@ const StyledCard = styled.div`
   border-radius: 10px;
   cursor: grab;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 function FactCards() {
@@ -51,7 +54,7 @@ function FactCards() {
           onCardLeftScreen={() => outOfFrame()}
         >
           <StyledCard>
-            <Heading as="h2" variant="h3">
+            <Heading as="h2" variant="h4">
               {item.CardTitle}
             </Heading>
             <Text variant="bodyCopySmall">{item.CardContent}</Text>
