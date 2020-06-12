@@ -35,10 +35,10 @@ const StyledCard = styled.div`
 function FactCards() {
   const base = new Airtable({
     apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
-  }).base("appUuI0J2jR3kVfUY");
+  }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_KEY);
   const [items, setItems] = useState([]);
   useEffect(() => {
-    base("Fact Cards")
+    base("Cards")
       .select()
       .firstPage(function (err, records) {
         const recordFields = records.map((record) => record.fields);
