@@ -5,7 +5,7 @@ import Airtable from "airtable";
 import FactCards from "../components/FactCards";
 import shuffleArray from "../components/utils/suffleArray";
 
-export default function App({ shuffledCards }) {
+export default function App({ cards }) {
   return (
     <div>
       <Head>
@@ -22,7 +22,7 @@ export default function App({ shuffledCards }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <FactCards shuffledCards={shuffledCards} />
+        <FactCards cards={cards} />
       </main>
     </div>
   );
@@ -47,11 +47,9 @@ export async function getStaticProps() {
     };
   });
 
-  const shuffledCards = shuffleArray(cards);
-
   return {
     props: {
-      shuffledCards,
+      cards,
     },
   };
 }

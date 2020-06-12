@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TinderCard from "react-tinder-card";
 import styled from "styled-components";
-import Airtable from "airtable";
 
 import Heading from "@totallymoney/ui/components/Heading";
 import Text from "@totallymoney/ui/components/Text";
@@ -33,7 +32,7 @@ const StyledCard = styled.div`
   justify-content: space-between;
 `;
 
-function FactCards({ shuffledCards }) {
+function FactCards({ cards }) {
   const colours = [
     "#d6d8f0",
     "#ff9f8c",
@@ -45,6 +44,13 @@ function FactCards({ shuffledCards }) {
     "#3de5b2",
     "#ede5e3",
   ];
+
+  const [shuffledCards, setShuffledCards] = useState([]);
+
+  useEffect(() => {
+    const shuffleCards = shuffleArray(cards);
+    setShuffledCards(shuffleCards);
+  });
 
   const swiped = () => {};
 
