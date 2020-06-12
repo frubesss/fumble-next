@@ -5,7 +5,7 @@ import FactCards from "../components/FactCards";
 
 export default function App() {
   return (
-    <>
+    <div>
       <Head>
         <link
           rel="stylesheet"
@@ -19,7 +19,9 @@ export default function App() {
         <title>Fumble</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <FactCards />
-    </>
+      <main>
+        <FactCards />
+      </main>
+    </div>
   );
 }
