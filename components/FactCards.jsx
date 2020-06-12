@@ -33,7 +33,7 @@ const StyledCard = styled.div`
   justify-content: space-between;
 `;
 
-function FactCards() {
+function FactCards({ shuffledCards }) {
   const colours = [
     "#d6d8f0",
     "#ff9f8c",
@@ -45,19 +45,6 @@ function FactCards() {
     "#3de5b2",
     "#ede5e3",
   ];
-  const base = new Airtable({
-    apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
-  }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_KEY);
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    base("Cards")
-      .select()
-      .firstPage(function (err, records) {
-        const recordFields = records.map((record) => record.fields);
-        const randomSortedRecordFields = shuffleArray(recordFields);
-        setItems(randomSortedRecordFields);
-      });
-  }, []);
 
   const swiped = () => {};
 
@@ -65,9 +52,9 @@ function FactCards() {
 
   return (
     <AppContainer>
-      {items.map((item) => (
+      {shuffledCards.map((card) => (
         <StyledTinderCard
-          key={item.CardTitle}
+          key={card.cardTitle}
           onSwipe={() => swiped()}
           onCardLeftScreen={() => outOfFrame()}
         >
@@ -75,9 +62,9 @@ function FactCards() {
             colour={colours[Math.floor(Math.random() * colours.length)]}
           >
             <Heading as="h2" variant="h4">
-              {item.CardTitle}
+              {card.cardTitle}
             </Heading>
-            <Text variant="bodyCopySmall">{item.CardDescription}</Text>
+            <Text variant="bodyCopySmall">{card.cardDescription}</Text>
           </StyledCard>
         </StyledTinderCard>
       ))}
