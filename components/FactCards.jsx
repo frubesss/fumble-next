@@ -5,6 +5,7 @@ import Airtable from "airtable";
 
 import Heading from "@totallymoney/ui/components/Heading";
 import Text from "@totallymoney/ui/components/Text";
+import shuffleArray from "./utils/suffleArray";
 
 const AppContainer = styled.div`
   width: 80vw;
@@ -42,7 +43,8 @@ function FactCards() {
       .select()
       .firstPage(function (err, records) {
         const recordFields = records.map((record) => record.fields);
-        setItems(recordFields);
+        const randomSortedRecordFields = shuffleArray(recordFields);
+        setItems(randomSortedRecordFields);
       });
   }, []);
 
