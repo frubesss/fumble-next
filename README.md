@@ -2,6 +2,8 @@
 
 > Anki/Flash card application powered by an Airtable backend.
 
+![](./.github/fumble.gif)
+
 This was created for [TotallyMoneys](https://www.totallymoney.com/) HackDay 2020.
  
 The premise being that anybody who wants to learn about TotallyMoney and its 
