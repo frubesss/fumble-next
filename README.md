@@ -71,3 +71,4 @@ Give a ⭐️ if this project helped you!
 
 - [Nextjs](https://nextjs.org/)
 - [Airtable](https://airtable.com/)
+- [React Tinder Cards](https://github.com/3DJakob/react-tinder-card/)
